@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 
+let count =0;
+
 function App() {
+
+  const onChangeHandler = (event) => {
+    const inputValue = event.target.value;
+    console.log(inputValue);
+  }
+
+  const onClickHandler = () => {
+    count++;
+    console.log(count);
+    // This will log the current count to the console
+    console.log('Button clicked!');
+  }
+  // This function will be called when the button is clicked
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style = {{textAlign: 'center'}}>
+    <h1>MY REACT APP </h1>
+    <button onClick={onClickHandler}></button>
+
+    <div> input: <input onChange={onChangeHandler} type="text" placeholder="Type something..." /></div>
     </div>
   );
 }
